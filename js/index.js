@@ -42,7 +42,15 @@ document.addEventListener("DOMContentLoaded", function () {
   function clamp(v, min, max) {
     return Math.min(Math.max(v, min), max);
   }
-
+  /* 뒤로가기 */
+  // 필요하면 "index.html"을 네 메인 파일명으로 바꾸면 된다.
+  const BACK_URL = "https://shgmlwl.github.io/seesaw_intro_p/";
+  const backBtn = document.getElementById("back-btn");
+  if (backBtn) {
+    backBtn.addEventListener("click", () => {
+      window.location.href = BACK_URL;
+    });
+  }
   // ----------------------------
   // 시소 각도 + 도형 슬라이드 업데이트
   // ----------------------------
@@ -357,3 +365,38 @@ document.addEventListener("DOMContentLoaded", function () {
 
   gsap.delayedCall(1.0, startScene);
 });
+/* =============================
+   타이핑 효과
+============================= */
+
+const typingText =
+  "강연자는 지금 이 시점에서조차 방향을 잡는 일 자체가 어렵게 느껴질 수 있음을 언급하며,\n" +
+  "다양한 시도를 통해 경험과 선택의 벡터를 조금씩 쌓아가다 보면,\n" +
+  "그 각각의 시도들이 어느 순간 서로 연결되어 하나의 면을 이루고,\n" +
+  "나아가 입체적인 방향성으로 확장되는 순간이 온다고 전했다.\n" +
+  "또한 지금 시점에서 가질 수 있는 대담함과 볼드(Bold)함을\n" +
+  "너무 쉽게 포기하지 않기를 바란다는 메시지를 덧붙였다.";
+
+const typingEl = document.getElementById("typing-text");
+let charIndex = 0;
+let typingStarted = false;
+
+function startTyping() {
+  if (typingStarted) return;
+  typingStarted = true;
+
+  function typeChar() {
+    if (charIndex < typingText.length) {
+      typingEl.textContent += typingText.charAt(charIndex);
+      charIndex++;
+      setTimeout(typeChar, 80); // ⬅ 타자 속도 (느리면 50~60)
+    }
+  }
+
+  typeChar();
+}
+
+/* =============================
+   씬 시작 후 타이핑 시작
+============================= */
+gsap.delayedCall(0.6, startTyping);
