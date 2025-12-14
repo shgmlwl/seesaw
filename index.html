@@ -3,32 +3,74 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- ======================
+         산돌 격동고딕 (main_p와 동일)
+    ====================== -->
+    <link
+      rel="preconnect"
+      href="https://qns2c88qif.execute-api.ap-northeast-2.amazonaws.com"
+    />
+    <link
+      rel="stylesheet"
+      href="https://qns2c88qif.execute-api.ap-northeast-2.amazonaws.com/v1/api/css/drop_fontstream_css/?sid=gAAAAABpOSOELa13yqSiXud3sZnVBP2uHJhHzLwWgt-HwVZ951lyhNu-sh5_uKRJfepaNlHHfpsvmnezGZj1gaMIZTLjJ2d4e1RBmg_ESMLWkStNa1SfFv11Wo6KDrulZBpHsd2yV6MHs14uVMuDKOogOHTNT7p2E8frhie9hfyjC096fwFFdoBUxW07uo1rQ6LK3wyh0T1O9By1qP9aUjJbjnftbZXiSZy2VWTx3J11cD-JYNkAsiRffOqwTQb9pOqOQMzcJWDp"
+      charset="utf-8"
+      referrerpolicy="origin"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+
+    <!-- ======================
+         CSS
+    ====================== -->
     <link rel="stylesheet" href="css/index.css" />
 
-    <!-- GSAP -->
+    <!-- ======================
+         GSAP
+    ====================== -->
     <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
 
     <title>Balance Scene</title>
   </head>
+
   <body>
-    <!-- 1920 × 1080 기준 캔버스 (JS에서 scale 조정) -->
+    <!-- ======================
+         1920 × 1080 기준 캔버스
+    ====================== -->
     <div id="layout">
       <section id="balance-scene" aria-label="브랜드 / 그래픽 밸런스">
-        <!-- 시소 시스템 전체 -->
+        <button id="back-btn" type="button" aria-label="메인으로 돌아가기">
+          <span class="material-symbols-outlined">chevron_left</span>
+        </button>
+        <div id="typing-wrap">
+          <p id="typing-text"></p>
+        </div>
+
+        <!-- ======================
+             시소 시스템
+        ====================== -->
         <div id="seesaw-system">
-          <!-- 회전하는 그룹 (막대 + 올라간 도형 전부 이 안에) -->
+          <!-- 회전 그룹 (막대 + 도형) -->
           <div id="seesaw-rot">
             <div id="seesaw-bar"></div>
             <div id="shape-layer"></div>
           </div>
 
-          <!-- 고정된 삼각형 받침 -->
+          <!-- 고정 삼각 받침 -->
           <div id="seesaw-pivot">
-            <svg width="260" height="190" viewBox="0 0 260 190">
+            <svg
+              width="260"
+              height="190"
+              viewBox="0 0 260 190"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
               <polygon
                 points="130,0 260,190 0,190"
                 fill="none"
-                stroke="#fff"
+                stroke="#ffffff"
                 stroke-width="3"
                 stroke-linejoin="round"
               />
@@ -38,6 +80,9 @@
       </section>
     </div>
 
+    <!-- ======================
+         JS
+    ====================== -->
     <script src="js/index.js"></script>
   </body>
 </html>
