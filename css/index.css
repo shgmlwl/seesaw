@@ -14,8 +14,7 @@ body {
 body {
   background: #000;
   overflow: hidden;
-  font-family: system-ui, -apple-system, "Apple SD Gothic Neo", "Noto Sans KR",
-    sans-serif;
+  font-family: "Sandoll GyeokdongG2", sans-serif;
 }
 
 /* 1920×1080 고정 캔버스 – JS에서 scale */
@@ -26,6 +25,35 @@ body {
   top: 50%;
   left: 50%;
   transform-origin: center center;
+}
+#back-btn {
+  position: absolute;
+  top: 60px;
+  left: 60px;
+  width: 44px;
+  height: 44px;
+  border: 2px solid #111;
+  border-radius: 999px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 50;
+}
+
+#back-btn .material-symbols-outlined {
+  font-size: 28px;
+  line-height: 1;
+}
+
+#back-btn:hover {
+  background: #111;
+  color: #fff;
+}
+
+#back-btn:active {
+  transform: scale(0.98);
 }
 
 /* 전체 씬 */
@@ -44,7 +72,7 @@ body {
 #seesaw-system {
   position: absolute;
   left: 50%;
-  bottom: 200px;
+  bottom: 120px;
   width: 1500px;
   height: 500px;
   transform: translateX(-50%);
@@ -152,9 +180,9 @@ body {
 
   background: #000;
   border: 1px solid rgba(255, 255, 255, 0.35);
-  padding: 4px 8px;
+  padding: 8px 12px;
   border-radius: 999px;
-  font-size: 15px;
+  font-size: 20px;
 }
 
 /* 라벨 있는 도형만 살짝 톤 업 */
@@ -169,5 +197,47 @@ body {
 @media (max-width: 1920px), (max-height: 1080px) {
   #layout {
     transform: translate(-50%, -50%); /* scale은 JS에서 */
+  }
+}
+
+/* ======================
+   타이핑 멘트
+====================== */
+
+#typing-wrap {
+  position: absolute;
+  top: 140px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1100px;
+  text-align: center;
+  z-index: 10;
+}
+
+#typing-text {
+  color: #ffffff;
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 1.7;
+  letter-spacing: -0.03em;
+  white-space: pre-wrap;
+}
+
+/* 커서 효과 */
+#typing-text::after {
+  content: "▍";
+  margin-left: 4px;
+  animation: blinkCursor 1s infinite;
+}
+
+@keyframes blinkCursor {
+  0%,
+  50%,
+  100% {
+    opacity: 1;
+  }
+  25%,
+  75% {
+    opacity: 0;
   }
 }
